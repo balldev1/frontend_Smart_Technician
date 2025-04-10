@@ -3,6 +3,12 @@
     <div class="flex mt-5">
       <h1 class="badge px-2">ผลการจับคู่งาน</h1>
     </div>
+    <button
+      @click="matchTasks"
+      className="btn btn-neutral hover:cursor-pointer hover:opacity-90 mt-5"
+    >
+      จับคู่งาน
+    </button>
 
     <div v-if="matches.length" class="mt-5 bg-white">
       <table class="table-auto w-full border-collapse border">
@@ -38,6 +44,7 @@
             <!-- ตรวจสอบว่า match.start_date หรือ match.end_date มีข้อมูลหรือไม่ -->
             <td class="border p-2">
               <div v-if="match.start_date && match.end_date">
+                <!-- <p>{{ match.start_date }} ถึง {{ match.end_date }}</p> -->
                 <p>
                   {{ formatDate(match.start_date) }} -
                   {{ formatDate(match.end_date) }}
@@ -58,7 +65,7 @@
     </div>
 
     <div v-if="totalDuration !== undefined" class="flex mt-5">
-      <p class="badge px-2">
+      <p lass="badge px-2">
         จำนวนวันที่ใช้ในการจัดตารางงานทั้งหมด: {{ totalDuration }} วัน
       </p>
     </div>
@@ -66,7 +73,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import axios from "axios";
 
 const matches = ref([]);
@@ -108,7 +115,4 @@ const matchTasks = async () => {
     console.error("จับคู่งานล้มเหลว", error);
   }
 };
-
-// Call matchTasks on component mount
-onMounted(matchTasks);
 </script>
