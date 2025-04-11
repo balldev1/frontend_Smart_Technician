@@ -19,7 +19,7 @@
 
             <!-- ตรวจสอบว่า match.technicians มีข้อมูลหรือไม่ -->
             <td class="border p-2">
-              <div v-if="match.technicians.length > 0">
+              <div v-if="Object.keys(match.technicians).length > 0">
                 <ul>
                   <li
                     v-for="technician in match.technicians"
@@ -38,6 +38,7 @@
             <!-- ตรวจสอบว่า match.start_date หรือ match.end_date มีข้อมูลหรือไม่ -->
             <td class="border p-2">
               <div v-if="match.start_date && match.end_date">
+                {{ match.start_date }}
                 <p>
                   {{ formatDate(match.start_date) }} -
                   {{ formatDate(match.end_date) }}
