@@ -38,7 +38,6 @@
             <!-- ตรวจสอบว่า match.start_date หรือ match.end_date มีข้อมูลหรือไม่ -->
             <td class="border p-2">
               <div v-if="match.start_date && match.end_date">
-                {{ match.start_date }}
                 <p>
                   {{ formatDate(match.start_date) }} -
                   {{ formatDate(match.end_date) }}
