@@ -45,7 +45,7 @@
           type="number"
           id="duration"
           min="1"
-          max="100"
+          max="3"
           required
           className="input input-sm input-neutral bg-white w-40 "
         />
